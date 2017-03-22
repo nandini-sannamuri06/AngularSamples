@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="MyModule">
+<script src="Scripts/angular.min.js"></script>
+<script src="Scripts/script.js"></script>
+<head>
+<meta charset="ISO-8859-1">
+<title>Demo</title>
+</head>
+<body ng-controller="myController">
+   <h1> Value :::: {{10+20}}</h1>
+   <h1> Name :::: {{ {name:'Nandini',initial:'Suggula'}.initial }}</h1>
+   <h1>{{ ['nandini','suggula','Narendra'][2]}}</h1>
+   <h1>{{message}}</h1>
+   <h3>Details<br> 
+   			{{user.Name}}<br>
+   			{{user.Address}}<br>
+   			{{user.Gender}}<br>
+   </h3> 
+   <img alt="Flower Image" ng-src="{{user.Image}}">
+   <br>
+   <table>
+      <tr>First Name</tr>
+      <tr><input type="text" ng-model="user.Name"></tr>
+   </table>
+   
+    <table>
+      <tr>First Name</tr>
+      <tr>{{user.Name}}</tr>
+   </table>
+   
+   <!-- <table>
+   		<thead>
+   			<tr>
+   			<th>Name</th>
+   			<th>Address</th>
+   			<th>Gender</th>
+   			<th>NickNames</th>
+   			</tr>
+   		</thead> -->
+   		<ul ng-repeat = "user in users" ng-init = "parentIndex=$index">
+   				{{user.Name}} - {{$index}}
+   				<ul ng-repeat = "nickName in user.NickNames">
+   						<li>{{nickName.name}} - {{parentIndex}} - {{$index}}</li>
+   				</ul>
+   			</ul>
+   		<!-- </tbody> -->
+  <!--  </table> -->
+</body>
+</html>

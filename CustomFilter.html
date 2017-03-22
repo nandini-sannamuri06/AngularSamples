@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<script src="Scripts/angular.min.js"></script>
+<script src="Scripts/customFilter.js"></script>
+<script src="Scripts/sepFilter.js"></script>
+<link rel="stylesheet" href="style.css"/>
+<body ng-app="custMod">
+
+<div ng-controller ="custController">
+<input type="checkbox" ng-model = "hideCity"/> Hide city
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Gender</th>
+				<th ng-hide="hideCity">City</th>
+				
+			</tr>
+			<tr ng-repeat = "employee in employees">
+				<td>{{employee.name}}</td>
+				<td>{{employee.gender | custFiler}}</td>
+				<td ng-hide="hideCity">{{employee.city}}</td>
+				
+			</tr>
+		</table>
+</div>
+
+</body>
+</html>

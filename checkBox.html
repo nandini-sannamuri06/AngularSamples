@@ -1,0 +1,36 @@
+<html ng-app="checkboxMod">
+<head>
+</head>
+<script src="Scripts/angular.min.js"></script>
+	<script src="Scripts/checkboxScript.js"></script>
+<body ng-controller="checkboxCtrl">
+<style>
+.selected {
+    background-color:green;
+    color:white;
+    font-weight:bold;
+}
+</style>
+<table>
+	<thead>
+		<tr>
+		<th><input type="checkbox" ng-model="value"></th>
+		<th>Name</th>
+		<th>Age</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat = "item in data" ng-class="{'selected':$index == selectedRow}">
+		  <td><input type="checkbox" ng-model="value"  ng-click="getData($index,value)"></td>
+		  <td>{{item.Name}}</td>
+		  <td>{{item.Age}}</td>
+		</tr>
+		<tr>
+		</tr>
+	</tbody>
+</table>
+<div>
+{{selectedItems}}
+</div>
+</body>
+</html>

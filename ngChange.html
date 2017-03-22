@@ -1,0 +1,19 @@
+<html ng-app="changeApp">
+<head>
+</head>
+<script src="Scripts/angular.min.js"></script>
+	<script src="Scripts/changeEvent.js"></script>
+<body ng-controller ="changeCtrl">
+hiiiiiii
+    <table>
+    
+		<tr ng-repeat = "item in list">
+			
+			<td><input type ="text"   ng-model ="qty"/></td>
+			<td>{{item.price*qty}}</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+

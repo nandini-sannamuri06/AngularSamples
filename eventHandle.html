@@ -1,0 +1,29 @@
+<html  ng-app="eventModule">
+<script src="Scripts/angular.min.js"></script>
+<script src="Scripts/eventScript.js"></script>
+<link href="style.css" rel="stylesheet" />
+<head>
+</head>
+<body ng-controller="eventController">
+
+	<div>
+	
+			<table>
+				<tr>
+					<th>Name</th>
+					<th>Likes</th>
+					<th>DisLikes</th>
+					<th>IncrementLikes</th>
+					<th>IncrementDislikes</th>
+				</tr>
+				<tr ng-repeat="movie in movies">
+					<td>{{movie.name}}</td>
+					<td>{{movie.likes}}</td>
+					<td>{{movie.disLikes}}</td>
+					<td><input type="button" value="Likes" ng-click="incrementLikes(movie)"></td>
+					<td><input type="button" value="DisLikes" ng-click="incrementDisLikes(movie)"></td>
+				</tr>
+			</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html ng-app="myFilterMod">
+<script src="Scripts/angular.min.js"></script>
+<script src="Scripts/filterScript.js"></script>
+<link rel="stylesheet" href="style.css"/>
+<head>
+</head>
+<body ng-controller ="myFilterCont" >
+    <div>
+    	Rows to Display : <input type="number" step="1" ng-model="rowLimit"/>
+    	 Order By : <select ng-model ="sortColumn">
+    					<option value="-name">Name by Asc</option>
+    					<option value="-dob">DOB by Desc</option>
+    					<option value="-gender">Gender by Desc</option>
+    					<option value="-salary">Salary by Desc</option>
+    			   </select> 
+    	Search : <input type="text" placeholder="search the data" ng-model = "searchText.name"/>
+    	<br/><br/>
+    	<table>
+    		<tr>
+    			<th ng-click="sortData('name')">Name <div ng-class="sortClass('name')"></div></th>
+    			<th ng-click="sortData('dob')">DOB <div ng-class="sortClass('dob')"></th>
+    			<th ng-click="sortData('gender')">Gender <div ng-class="sortClass('gender')"></th>
+    			<th ng-click="sortData('salary')">Salary (number) <div ng-class="sortClass('salary')"></th>
+    			<th ng-click="sortData('salary')">Salary (currency) <div ng-class="sortClass('salary')"></th>
+    		</tr>
+    		<tbody>
+    		<tr ng-repeat="user in users | limitTo: rowLimit | orderBy:sortColumn:reverseSort | filter: searchText">
+    			<td>{{user.name | uppercase}}</td>
+    			<td>{{user.dob  | date:'dd-MM-yyyy'}}</td>
+    			<td>{{user.gender | lowercase}}</td>
+    			<td>{{user.salary | number:2}}</td>
+    			<td>{{user.salary | currency:"$":1}}</td>
+    		</tr>
+    		</tbody>
+    	</table>
+    </div>
+
+</body>
+</html>
